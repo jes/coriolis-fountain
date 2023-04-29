@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Coriolis Fountain</title>
+</head>
+<body>
+    <h1>Coriolis Fountain</h1>
+    <div id="canvas"></div>
+
+    Rotation: <input type="range" min="5" max="200" id="rpm"> <span id="showrpm"></span> rpm<br>
+    Nozzle velocity: <input type="range" min=0" max="8" id="flowvel"> <span id="showflowvel"></span> m/s<br>
+    Nozzle angle 1st axis: <input type="range" min="0" max="360" id="verticalangle"> <span id="showverticalangle"></span>&deg;<br>
+    Nozzle angle 2nd axis: <input type="range" min="-90" max="90" id="horizontalangle"> <span id="showhorizontalangle"></span>&deg;<br>
+
+    <script src="p5.min.js"></script>
+    <script src="rotate.js"></script>
+
+    <script src="droplet.js"></script>
+    <script src="arm.js"></script>
+    <script src="fountain.js"></script>
+</body>
+</html>
+
