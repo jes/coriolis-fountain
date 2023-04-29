@@ -37,7 +37,7 @@ Arm.prototype.step = function(dt) {
         );
         let radius = 1+Math.random()*1;
 
-        let d = new Droplet(pos.rotate3d(axis, this.angle+anglestep*i/ndroplets), vel.rotate3d(axis, this.angle+anglestep*i/ndroplets), colour, radius);
+        let d = new Droplet(pos.rotate3d(axis, this.angle-anglestep*i/ndroplets), vel.rotate3d(axis, this.angle-anglestep*i/ndroplets), colour, radius);
         d.step(dt*i/ndroplets);
         this.droplets.push(d);
     }
