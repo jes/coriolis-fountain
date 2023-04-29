@@ -30,14 +30,7 @@ Arm.prototype.step = function(dt) {
         let haxis = new p5.Vector(0,0,1);
         vel = vel.rotate3d(haxis, this.hangle).rotate3d(vaxis, this.vangle);
 
-        let colour = color(
-        Math.round(90+Math.random()*50),
-        Math.round(160+Math.random()*60),
-        Math.round(235+Math.random()*20)
-        );
-        let radius = 1+Math.random()*1;
-
-        let d = new Droplet(pos.rotate3d(axis, this.angle-anglestep*i/ndroplets), vel.rotate3d(axis, this.angle-anglestep*i/ndroplets), colour, radius);
+        let d = new Droplet(pos.rotate3d(axis, this.angle-anglestep*i/ndroplets), vel.rotate3d(axis, this.angle-anglestep*i/ndroplets));
         d.step(dt*i/ndroplets);
         this.droplets.push(d);
     }

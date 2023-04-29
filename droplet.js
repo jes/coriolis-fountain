@@ -1,10 +1,8 @@
 var GRAVITY = 1000; // cm/s^2
 
-function Droplet(pos, vel, colour, radius) {
+function Droplet(pos, vel) {
     this.pos = pos;
     this.vel = vel;
-    this.colour = colour
-    this.radius = radius;
 }
 
 Droplet.prototype.step = function(dt) {
@@ -16,7 +14,15 @@ Droplet.prototype.draw = function() {
     push();
     translate(this.pos.x, this.pos.y, this.pos.z);
     noStroke();
-    fill(this.colour);
-    box(this.radius*2);
+
+    let colour = color(
+        Math.round(90+Math.random()*50),
+        Math.round(160+Math.random()*60),
+        Math.round(235+Math.random()*20)
+    );
+    let radius = 1+Math.random()*1;
+
+    fill(colour);
+    box(radius*2);
     pop();
 };

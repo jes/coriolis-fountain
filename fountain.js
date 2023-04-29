@@ -1,16 +1,17 @@
 var canvas;
-var arms;
+var arms = [];
 
 function setup() {
     canvas = createCanvas(600, 400, WEBGL);
     canvas.parent('canvas');
-    arms = [ new Arm(0, 100, 60), new Arm(2*PI/3, 100, 60), new Arm(4*PI/3, 100, 60) ];
 }
 
 function draw() {
     orbitControl(1, 1, 0.1);
     background(200);
 
+    let narms = val('arms');
+    txt('showarms', narms);
     let rpm = val('rpm');
     txt('showrpm', rpm);
     let flowvel = val('flowvel');
@@ -19,6 +20,15 @@ function draw() {
     txt('showverticalangle', vangle);
     let hangle = val('horizontalangle');
     txt('showhorizontalangle', hangle);
+
+    if (arms.length != narms) {
+        while (arms.length > narms)
+            arms.pop();
+        while (arms.length < narms)
+            arms.push(new Arm(0, 100, 60));
+        for (let i = 0; i < arms.length; i++)
+            arms[i].angle = i * (2*PI/narms);
+    }
 
     translate(0, 180, -100);
     if (checked('rotatingframe'))
