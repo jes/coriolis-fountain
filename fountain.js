@@ -21,7 +21,8 @@ function draw() {
     txt('showhorizontalangle', hangle);
 
     translate(0, 180, -100);
-    rotateY(-arms[0].angle);
+    if (checked('rotatingframe'))
+        rotateY(-arms[0].angle);
 
     for (let arm of arms) {
         arm.rpm = rpm;
@@ -35,6 +36,9 @@ function draw() {
 
 function val(id) {
     return document.getElementById(id).value;
+}
+function checked(id) {
+    return document.getElementById(id).checked;
 }
 
 function txt(id, str) {
